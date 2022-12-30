@@ -22,12 +22,30 @@ for (skill of mySkills) {
 const messageForm = document.getElementsByName('leave_message')[0];
 messageForm.addEventListener('submit', (event) => {
     event.preventDefault(); // in this case prevents refreshing page after submit clicked
-    console.log(event.target);
 
+    // create remove button
+    const removeButton = document.createElement('button');
+    removeButton.textContent = "remove";
+    removeButton.type = "button";
+    removeButton.addEventListener('click', (event) => {
+        event.target.parentNode.remove();
+    });
+
+    // capture form values and create new bullet with values from the form
     const name = event.target.name;
     const email = event.target.email;
     const message = event.target.message;
 
-    console.log(`${name.value} + ${email.value} + ${message.value}`);
+    const newMessage = document.createElement('li');
+    newMessage.insertAdjacentHTML(
+        'afterbegin',
+        `<a href="mailto:${email.value}">${name.value}</a> wrote <span>${message.value} </span>`
+    );
+    newMessage.append(removeButton);
+
+    
+    const messageList = document.getElementById('messages').querySelector('ul');
+    messageList.appendChild(newMessage);
+
     event.target.reset();
 });
