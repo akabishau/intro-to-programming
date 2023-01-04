@@ -31,13 +31,33 @@ h1, h2, h3 {
     background-color: rgb(216, 234, 234);
 }
 
-.experienceItem {
+.experience-item {
     border: 1px solid black;
     border-radius: 3px;
     margin: 10px;
     background-color: bisque;
-    height: 30px;
+    min-height: 30px;
+
+    display: flex;
+    flex-direction: column;
 }
+
+
+
+
+
+@media (min-width: 769px) {
+    .experience-item {
+        flex-direction: row;
+    }
+
+    .experience-company {
+        margin-right: auto;
+    }
+}
+
+
+
 
 
 /* Transform the "Skills" list items into styled blocks */
