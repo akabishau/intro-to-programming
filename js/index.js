@@ -67,7 +67,11 @@ function renderHTMLfor(projects) {
     
     for (project of githubProjects) {
         const projectBullet = document.createElement('li');
-        projectBullet.textContent = project.name;
+        const projectUrl = document.createElement('a');
+        projectUrl.textContent = project.name;
+        projectUrl.href = project.html_url;
+        projectUrl.target = '_blank'
+        projectBullet.appendChild(projectUrl);
         projectList.appendChild(projectBullet);
     }
 }
