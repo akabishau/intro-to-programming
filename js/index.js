@@ -49,3 +49,8 @@ messageForm.addEventListener('submit', (event) => {
 
     event.target.reset();
 });
+
+// GitHub repositories XML HTTP request
+const githubRequest = new XMLHttpRequest();
+githubRequest.open('GET', 'https://api.github.com/users/akabishau/repos');
+githubRequest.send();
