@@ -51,10 +51,23 @@ messageForm.addEventListener('submit', (event) => {
 });
 
 // GitHub repositories XML HTTP request
+var githubProjects = [];
 const githubRequest = new XMLHttpRequest();
 githubRequest.addEventListener('load', function() {
-    let repositories = JSON.parse(githubRequest.response);
-    console.log(repositories)
+    githubProjects = JSON.parse(githubRequest.response);
+    renderHTMLfor(githubProjects);
 });
 githubRequest.open('GET', 'https://api.github.com/users/akabishau/repos');
 githubRequest.send();
+
+
+function renderHTMLfor(projects) {
+    const projectSection = document.getElementById('projects');
+    const projectList = projectSection.querySelector('ul');
+    
+    for (project of githubProjects) {
+        const projectBullet = document.createElement('li');
+        projectBullet.textContent = project.name;
+        projectList.appendChild(projectBullet);
+    }
+}
