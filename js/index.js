@@ -52,5 +52,9 @@ messageForm.addEventListener('submit', (event) => {
 
 // GitHub repositories XML HTTP request
 const githubRequest = new XMLHttpRequest();
+githubRequest.addEventListener('load', function() {
+    let repositories = JSON.parse(githubRequest.response);
+    console.log(repositories)
+});
 githubRequest.open('GET', 'https://api.github.com/users/akabishau/repos');
 githubRequest.send();
