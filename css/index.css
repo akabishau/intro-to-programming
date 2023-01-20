@@ -25,19 +25,36 @@ h1, h2, h3 {
 }
 
 
-/* Transform the "Experience" list items into styled blocks */
+/* Change the layout of your "Experience" section using rows and columns */
 #experience {
     /* padding: 15px; */
     background-color: rgb(216, 234, 234);
 }
 
-.experienceItem {
+.experience-item {
     border: 1px solid black;
     border-radius: 3px;
     margin: 10px;
     background-color: bisque;
-    height: 30px;
+    min-height: 30px;
+
+    display: flex;
+    flex-direction: column;
 }
+
+
+@media (min-width: 769px) {
+    .experience-item {
+        flex-direction: row;
+    }
+
+    .experience-company {
+        margin-right: auto;
+    }
+}
+
+
+
 
 
 /* Transform the "Skills" list items into styled blocks */
@@ -53,21 +70,6 @@ h1, h2, h3 {
 }
 
 /* Style the "Leave a Message" form elements */
-
-/* Change font size and color of labels */
-form label {
-    color: rgb(22, 49, 149);
-    font-size: small;
-}
-
-/* Change font size, padding, border, etc. of inputs and textarea */
-form input, form textarea {
-    color: deeppink;
-    padding: 5px;
-    border: 2px dotted gray;
-    margin: 20px 5px;
-    vertical-align: middle;
-}
 
 /* Change padding, background color, border, etc. of submit button */
 form button {
@@ -90,6 +92,57 @@ form button {
   
   form button:active {
     opacity: .5;
+  }
+
+
+  /* Update the "Leave a Message" form to use Flexbox or CSS Grid */
+.form-row label {
+    background-color: lightgray;
+}
+
+.form-row input, 
+.form-row textarea,
+.form-row label {
+    width: 100%;
+}
+  
+  .form-wrapper {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: lightblue;
+
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .form-row {
+    background-color: lightcoral;
+    margin: 5px;
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+  }
+
+  
+
+  @media (min-width:  769px) {
+    .form-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .form-row {
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: 40%;
+    }
+
+    .form-textarea {
+        flex-grow: 2;
+    }
   }
 
 

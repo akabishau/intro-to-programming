@@ -6,11 +6,32 @@
     <meta charset="UTF-8">
     <meta name="description" content="Code The Dream. The final project of the Intro to Programming class">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navigation.css">
 </head>
 
 <body>
-    <h1>Aleksey Kabishau</h1>
-    <section>
+    <header>
+        <div class="nav-container">
+            <div class="nav-item">
+                <div class="nav-logo">
+                    <img src="images/logo.jpg" alt="">
+                </div>
+                <div class="nav-name">
+                    <h1>Aleksey Kabishau</h1>
+                </div>
+            </div>
+            <div class="nav-item hide-mobile">
+                <ul class="nav-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#connect">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <section id="about">
         <h3>About</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua. Sollicitudin ac orci phasellus egestas tellus rutrum. Et egestas quis ipsum suspendisse
@@ -20,13 +41,22 @@
 
     <section id="experience">
         <h3>Experience</h3>
-        <div>
-            <div class="experienceItem">Experience 1</div>
-            <div class="experienceItem">Experience 2</div>
-            <div class="experienceItem">Experience 3</div>
-            <div class="experienceItem">Experience 4</div>
-            <div class="experienceItem">Experience 5</div>
-            <div class="experienceItem">Experience 6</div>
+        <div class="experience-list">
+            <div class="experience-item">
+                <div class="experience-title">Title 1</div>
+                <div class="experience-company">Company Name</div>
+                <div class="experience-period">Noveber 2021 - Present</div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-title">Title 2</div>
+                <div class="experience-company">Company Name 2</div>
+                <div class="experience-period">March 2021 - Noveber 2021</div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-title">Title 3</div>
+                <div class="experience-company">Company Name 3</div>
+                <div class="experience-period">January 2020 - March 2021</div>
+            </div>
         </div>
     </section>
 
@@ -36,7 +66,7 @@
         <ul></ul>
     </section>
 
-    <section>
+    <section id="connect">
         <h3>Connect</h3>
         <ul>
             <li>Email: aleksey.kabishau@icloud.com</li>
@@ -44,19 +74,26 @@
         </ul>
     </section>
 
-    <section>
+    <section id="leave-message">
         <h2>Leave a Message</h2>
         <form action="index.html" name="leave_message">
-            <label for="name">Name:</label>
-            <input id="name" name="name" type="text" required><br>
-
-            <label for="email">Email:</label>
-            <input id="email" name="email" type="email" required><br>
-
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" required></textarea><br>
-            
-            <button type="submit">Submit</button>
+            <div class="form-wrapper">
+                <div class="form-row">
+                    <label for="test">NAME</label>
+                    <input id="name" name="name" type="text" required>
+                </div>
+                <div class="form-row">
+                    <label for="email">EMAIL</label>
+                    <input id="email" name="email" type="email" required>
+                </div>
+                <div class="form-row form-textarea">
+                    <label for="message">YOUR MESSAGE</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>    
+            </div>
+            <div class="form-wrapper">
+                <button type="submit">Submit</button>
+            </div>
         </form>
     </section>
 
