@@ -50,22 +50,15 @@ messageForm.addEventListener('submit', (event) => {
     event.target.reset();
 });
 
-// GitHub repositories XML HTTP request
-var githubProjects = [];
-const githubRequest = new XMLHttpRequest();
-githubRequest.addEventListener('load', function() {
-    githubProjects = JSON.parse(githubRequest.response);
-    renderHTMLfor(githubProjects);
-});
-githubRequest.open('GET', 'https://api.github.com/users/akabishau/repos');
-githubRequest.send();
+// GitHub repositories using Fetch API 
 
 
 function renderHTMLfor(projects) {
+    console.log('here');
     const projectSection = document.getElementById('projects');
     const projectList = projectSection.querySelector('ul');
-    
-    for (project of githubProjects) {
+    // console.log(githubProjects)
+    for (project of projects) {
         const projectBullet = document.createElement('li');
         const projectUrl = document.createElement('a');
         projectUrl.textContent = project.name;
@@ -75,3 +68,7 @@ function renderHTMLfor(projects) {
         projectList.appendChild(projectBullet);
     }
 }
+
+fetch('https://api.github.com/users/akabishau/repos')
+.then(response => response.json())
+.then(projects => renderHTMLfor(projects))
