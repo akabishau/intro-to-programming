@@ -52,12 +52,9 @@ messageForm.addEventListener('submit', (event) => {
 
 // GitHub repositories using Fetch API 
 
-
 function renderHTMLfor(projects) {
-    console.log('here');
     const projectSection = document.getElementById('projects');
     const projectList = projectSection.querySelector('ul');
-    // console.log(githubProjects)
     for (project of projects) {
         const projectBullet = document.createElement('li');
         const projectUrl = document.createElement('a');
