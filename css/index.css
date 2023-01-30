@@ -8,7 +8,7 @@
 body {
     background-color: blanchedalmond;
     color: darkslategray;
-    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
 }
 
 
@@ -18,7 +18,9 @@ section {
 }
 
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-size: large;
     font-family: 'Times New Roman', Times, serif;
     color: rgb(30, 25, 26);
@@ -79,34 +81,34 @@ form button {
     box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
     color: #FFFFFF;
     cursor: pointer;
-    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
     font-size: 16px;
     font-weight: 800;
     padding: 8px 14px;
-  }
-  
-  form button:hover {
+}
+
+form button:hover {
     background-color: #fff;
     color: #FF4742;
-  }
-  
-  form button:active {
+}
+
+form button:active {
     opacity: .5;
-  }
+}
 
 
-  /* Update the "Leave a Message" form to use Flexbox or CSS Grid */
+/* Update the "Leave a Message" form to use Flexbox or CSS Grid */
 .form-row label {
     background-color: lightgray;
 }
 
-.form-row input, 
+.form-row input,
 .form-row textarea,
 .form-row label {
     width: 100%;
 }
-  
-  .form-wrapper {
+
+.form-wrapper {
     width: 90%;
     max-width: 600px;
     margin: 0 auto;
@@ -115,9 +117,9 @@ form button {
     display: flex;
     flex-direction: column;
 
-  }
+}
 
-  .form-row {
+.form-row {
     background-color: lightcoral;
     margin: 5px;
 
@@ -125,15 +127,16 @@ form button {
     flex-direction: column;
     flex-grow: 1;
     justify-content: flex-start;
-  }
+}
 
-  
 
-  @media (min-width:  769px) {
+
+@media (min-width: 769px) {
     .form-wrapper {
         flex-direction: row;
         flex-wrap: wrap;
     }
+
     .form-row {
         flex-direction: column;
         align-items: flex-start;
@@ -143,10 +146,10 @@ form button {
     .form-textarea {
         flex-grow: 2;
     }
-  }
+}
 
 
-  /* Transform the "Messages" list items into styled blocks and customize the button(s) */
+/* Transform the "Messages" list items into styled blocks and customize the button(s) */
 #messages {
     padding: 15px;
     background-color: floralwhite;
