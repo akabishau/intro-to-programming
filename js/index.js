@@ -18,37 +18,37 @@ for (skill of mySkills) {
 }
 
 
-// handle message form submit
-const messageForm = document.getElementsByName('leave_message')[0];
-messageForm.addEventListener('submit', (event) => {
-    event.preventDefault(); // in this case prevents refreshing page after submit clicked
+// // handle message form submit
+// const messageForm = document.getElementsByName('leave_message')[0];
+// messageForm.addEventListener('submit', (event) => {
+//     event.preventDefault(); // in this case prevents refreshing page after submit clicked
 
-    // create remove button
-    const removeButton = document.createElement('button');
-    removeButton.textContent = "remove";
-    removeButton.type = "button";
-    removeButton.addEventListener('click', (event) => {
-        event.target.parentNode.remove();
-    });
+//     // create remove button
+//     const removeButton = document.createElement('button');
+//     removeButton.textContent = "remove";
+//     removeButton.type = "button";Í
+//     removeButton.addEventListener('click', (event) => {
+//         event.target.parentNode.remove();
+//     });
 
-    // capture form values and create new bullet with values from the form
-    const name = event.target.name;
-    const email = event.target.email;
-    const message = event.target.message;
+//     // capture form values and create new bullet with values from the form
+//     const name = event.target.name;
+//     const email = event.target.email;
+//     const message = event.target.message;
 
-    const newMessage = document.createElement('li');
-    newMessage.insertAdjacentHTML(
-        'afterbegin',
-        `<a href="mailto:${email.value}">${name.value}</a> wrote <span>${message.value} </span>`
-    );
-    newMessage.append(removeButton);
+//     const newMessage = document.createElement('li');
+//     newMessage.insertAdjacentHTML(
+//         'afterbegin',
+//         `<a href="mailto:${email.valuÍe}">${name.value}</a> wrote <span>${message.value} </span>`
+//     );
+//     newMessage.append(removeButton);
 
     
-    const messageList = document.getElementById('messages').querySelector('ul');
-    messageList.appendChild(newMessage);
+//     const messageList = document.getElementById('messages').querySelector('ul');
+//     messageList.appendChild(newMessage);
 
-    event.target.reset();
-});
+//     event.target.reset();
+// });
 
 // GitHub repositories using Fetch API 
 

@@ -149,42 +149,55 @@ form button:active {
 }
 
 
-/* Transform the "Messages" list items into styled blocks and customize the button(s) */
+/* MESSAGES */
+
+
+
 #messages {
     padding: 15px;
     background-color: floralwhite;
-    color: #FF4742;
+    color: black;
 }
 
-#messages li {
-    color: black;
-    font-style: italic;
+
+.messages-hide {
+    display: none;
 }
+.messages-show {
+    display: block;
+}
+
+#messages ul {
+    list-style: none;
+}
+
+#messages ul li {
+    padding: 1em;
+    background: #fff;
+    border-radius: 0.3em;
+    border: solid 1px black;
+}
+
+#messages label {
+    display: block;
+}
+
 
 #messages li a {
-    color: #FF4742;
     font-style: normal;
     font-weight: 800;
-    font-size: 1.3rem;
-    border-radius: 1px solid black;
-    padding: 0px 10px;
 }
 
 #messages li span {
-    font-style: normal;
-    font-weight: 400;
-    color: black;
-    padding: 0px 10px;
 
 }
 
 #messages button {
-    margin-left: 10px;
+    display: block;
     border-radius: 6px;
     color: #FF4742;
     background: floralwhite;
     border: 1px solid #FF4742;
-    padding: 5px;
 }
 
 #messages button:hover {
