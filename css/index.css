@@ -14,7 +14,12 @@ body {
 
 section {
     border: 1px solid black;
-    margin: 8px;
+    margin: 10px;
+    padding: 15px;
+}
+
+ul {
+    list-style: none;
 }
 
 
@@ -22,7 +27,7 @@ h1,
 h2,
 h3 {
     font-size: large;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
     color: rgb(30, 25, 26);
 }
 
@@ -59,17 +64,23 @@ h3 {
 
 
 
-/* Transform the "Skills" list items into styled blocks */
-#skills {
-    background-color: rgb(185, 207, 246);
-    padding: 15px;
+/* SKILLS */
+#skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
-#skills ul {
-    list-style-type: square;
-    list-style-position: outside;
-    font-size: 1.1rem;
+.skills-item {
+    color: black;
+    padding: 10px;
+    margin: 5px;
+    background: white;
+    border: 1px solid black;
+	border-radius: 3px;
 }
+
+
 
 /* Style the "Leave a Message" form elements */
 
@@ -167,13 +178,10 @@ form button:active {
     display: block;
 }
 
-#messages ul {
-    list-style: none;
-}
 
 #messages ul li {
     padding: 1em;
-    background: #fff;
+    background: white;
     border-radius: 0.3em;
     border: solid 1px black;
 }
@@ -206,8 +214,33 @@ form button:active {
 }
 
 
-/* Change the spacing and background color of the footer */
+/* FOOTER */
+
 footer {
-    background-color: white;
     letter-spacing: 1px;
+    margin: 10px;
+    padding: 15px;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+}
+
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.social-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-social {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
 }

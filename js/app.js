@@ -1,9 +1,24 @@
-let messageCount = 0
+const mySkills = ['HTML', 'CSS', 'Javascript', 'Node.js', 'Agile', 'SDLC', 'Swift', 'SQL', 'Python', 'Jira'];
+let messageCount = 0;
+let currentYear = new Date().getFullYear();
+const myName = 'Aleksey Kabishau';
 
+
+const skillsList = document.getElementById('skills-list');
 const messagesSection = document.getElementById('messages');
 const messageList = messagesSection.querySelector('ul');
 const messageForm  = document.getElementById('feedback');
+const footerCopyright = document.querySelector('.copyright');
 
+
+function createSkillsList(skills) {
+    for (item of skills) {
+        const skill = document.createElement('div');
+        skill.className = 'skills-item';
+        skill.textContent = item;
+        skillsList.appendChild(skill);
+    }
+}
 
 
 messageForm.addEventListener('submit', (event) => {
@@ -52,7 +67,7 @@ function createMessage(name, email, messageText) {
     const removeButton = document.createElement('button');
     removeButton.textContent = "remove";
     removeButton.type = "button";
-    
+
     removeButton.addEventListener('click', (event) => {
         event.target.parentNode.remove();
         messageCount -= 1;
@@ -64,3 +79,15 @@ function createMessage(name, email, messageText) {
     li.appendChild(removeButton);
     return li;
   }
+
+
+  function configureFooter(year, name) {
+    const p = document.createElement('p');
+    p.textContent = `\u00A9 ${year} ${name}`;
+    footerCopyright.appendChild(p);
+}
+
+
+
+  createSkillsList(mySkills);
+  configureFooter(currentYear, myName);
