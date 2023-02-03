@@ -32,36 +32,46 @@ h3 {
 }
 
 
-/* Change the layout of your "Experience" section using rows and columns */
-#experience {
-    /* padding: 15px; */
-    background-color: rgb(216, 234, 234);
-}
+/* EXPERIENCE */
 
 .experience-item {
     border: 1px solid black;
     border-radius: 3px;
-    margin: 10px;
-    background-color: bisque;
     min-height: 30px;
+    margin: 10px 0px;
+    padding: 5px 0px;
+    align-items: left;
+
 
     display: flex;
     flex-direction: column;
 }
 
+.job-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.job-dash {
+    display: none !important;
+    margin: 0 10px;
+}
 
 @media (min-width: 769px) {
     .experience-item {
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .experience-company {
-        margin-right: auto;
+    .job-wrapper {
+        flex-direction: row;
+    }
+
+    .job-dash {
+        display: block !important;
     }
 }
-
-
-
 
 
 /* SKILLS */
@@ -196,9 +206,9 @@ form button:active {
     font-weight: 800;
 }
 
-#messages li span {
+/* #messages li span {
 
-}
+} */
 
 #messages button {
     display: block;
