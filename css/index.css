@@ -6,9 +6,27 @@
 
 
 body {
-    background-color: blanchedalmond;
-    color: darkslategray;
-    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    background-color: #f8fdf3;;
+    color: #484646;;
+    font-family: 'Lato', sans-serif;;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0;
+
+    border-radius: 0.4em;
+    background: #f7f7f7;
+    box-shadow: 0 0 26px rgba(0,0,0, 0.15);
+}
+
+
+@media (min-width: 769px) {
+    .wrapper {
+        width: 90%;
+        margin: 2em auto;
+    }
 }
 
 
@@ -30,6 +48,7 @@ h3 {
     /* font-family: 'Times New Roman', Times, serif; */
     color: rgb(30, 25, 26);
 }
+
 
 
 /* EXPERIENCE */

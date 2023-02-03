@@ -11,6 +11,7 @@
 </head>
 
 <body>
+<div class="wrapper">
     <header>
         <div class="nav-container">
             <div class="nav-item">
@@ -32,83 +33,85 @@
         </div>
     </header>
     
-    <section id="about">
-        <h3>About</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Sollicitudin ac orci phasellus egestas tellus rutrum. Et egestas quis ipsum suspendisse
-            ultrices.
-            Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. </p>
-    </section>
-
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="experience-list">
-            <div class="experience-item">
-                <div class="job-wrapper">
-                    <div class="job-title">Student</div>
-                    <div class="job-dash">-</div>
-                    <div class="job-company">Code The Dream</div>
+    <main>
+        <section id="about">
+            <h3>About</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Sollicitudin ac orci phasellus egestas tellus rutrum. Et egestas quis ipsum suspendisse
+                ultrices.
+                Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. </p>
+        </section>
+    
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="job-wrapper">
+                        <div class="job-title">Student</div>
+                        <div class="job-dash">-</div>
+                        <div class="job-company">Code The Dream</div>
+                    </div>
+                    <div class="experience-period">May 2022 - Present</div>
                 </div>
-                <div class="experience-period">May 2022 - Present</div>
-            </div>
-            <div class="experience-item">
-                <div class="job-wrapper">
-                    <div class="job-title">Software Developer</div>
-                    <div class="job-dash">-</div>
-                    <div class="job-company">Microsoft</div>
+                <div class="experience-item">
+                    <div class="job-wrapper">
+                        <div class="job-title">Software Developer</div>
+                        <div class="job-dash">-</div>
+                        <div class="job-company">Microsoft</div>
+                    </div>
+                    <div class="job-period">Mar 2021 - Apr 2022</div>
                 </div>
-                <div class="job-period">Mar 2021 - Apr 2022</div>
-            </div>
-            <div class="experience-item">
-                <div class="job-wrapper">
-                    <div class="job-title">Developer Intern</div>
-                    <div class="job-dash">-</div>
-                    <div class="job-company">Facebook</div>
+                <div class="experience-item">
+                    <div class="job-wrapper">
+                        <div class="job-title">Developer Intern</div>
+                        <div class="job-dash">-</div>
+                        <div class="job-company">Facebook</div>
+                    </div>
+                    <div class="job-period">Jan 2020 - Feb 2021</div>
                 </div>
-                <div class="job-period">Jan 2020 - Feb 2021</div>
             </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h3>Skills</h3>
-        <!-- empty list, skills are added by js script -->
-        <div id="skills-list"></div>
-
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul></ul>
-    </section>
-
-    <section id="leave-message">
-        <h2>Leave a Message</h2>
-        <form action="index.html" name="leave_message" id="feedback">
-            <div class="form-wrapper">
-                <div class="form-row">
-                    <label for="test">NAME</label>
-                    <input id="name" name="name" type="text" required>
+        </section>
+    
+        <section id="skills">
+            <h3>Skills</h3>
+            <!-- empty list, skills are added by js script -->
+            <div id="skills-list"></div>
+    
+        </section>
+    
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul></ul>
+        </section>
+    
+        <section id="leave-message">
+            <h2>Leave a Message</h2>
+            <form action="index.html" name="leave_message" id="feedback">
+                <div class="form-wrapper">
+                    <div class="form-row">
+                        <label for="test">NAME</label>
+                        <input id="name" name="name" type="text" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="email">EMAIL</label>
+                        <input id="email" name="email" type="email" required>
+                    </div>
+                    <div class="form-row form-textarea">
+                        <label for="message">YOUR MESSAGE</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>    
                 </div>
-                <div class="form-row">
-                    <label for="email">EMAIL</label>
-                    <input id="email" name="email" type="email" required>
+                <div class="form-wrapper">
+                    <button type="submit">Submit</button>
                 </div>
-                <div class="form-row form-textarea">
-                    <label for="message">YOUR MESSAGE</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>    
-            </div>
-            <div class="form-wrapper">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-    </section>
-
-    <section id="messages" class="messages-hide">
-        <h2>Messages</h2>
-        <ul></ul>
-    </section>
+            </form>
+        </section>
+    
+        <section id="messages" class="messages-hide">
+            <h2>Messages</h2>
+            <ul></ul>
+        </section>
+    </main>
 
     <footer>
         <div class="footer-container">
@@ -137,8 +140,9 @@
             </ul>
         </div>
     </footer>
+</div>
 
-    <script src="js/index.js"></script>
-    <script src="js/app.js"></script>
+<script src="js/index.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
