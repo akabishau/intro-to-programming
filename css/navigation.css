@@ -36,6 +36,15 @@
     border-radius: 50%;
 }
 
+.link {
+    color: #484646;
+    text-decoration: none;
+}
+
+.link:hover {
+    border-bottom: 2px solid #484646;
+}
+
 /* --------------------------
   Media Queries
 --------------------------- */

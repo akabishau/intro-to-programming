@@ -57,6 +57,7 @@ function createMessage(name, email, messageText) {
     const a = document.createElement('a');
     a.href = `mailto:${email}`;
     a.text = name;
+    a.className = "link"
 
     const span = document.createElement('span');  
     span.textContent = 'from ';
