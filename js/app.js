@@ -7,7 +7,7 @@ const myName = 'Aleksey Kabishau';
 const skillsList = document.getElementById('skills-list');
 const messagesSection = document.getElementById('messages');
 const messageList = messagesSection.querySelector('ul');
-const messageForm  = document.getElementById('feedback');
+const messageForm  = document.getElementById('feedback-form');
 const footerCopyright = document.querySelector('.copyright');
 
 
