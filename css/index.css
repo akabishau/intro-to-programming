@@ -14,7 +14,8 @@ body {
 .wrapper {
     width: 100%;
     max-width: 900px;
-    margin: 0;
+    margin: 0 auto;
+    padding: 10px;
 
     border-radius: 0.4em;
     background: #f7f7f7;
@@ -32,8 +33,6 @@ body {
 
 section {
     border: 1px solid black;
-    margin: 10px;
-    padding: 15px;
 }
 
 ul {
@@ -44,7 +43,6 @@ ul {
 h2,
 h3 {
     font-size: large;
-    /* font-family: 'Times New Roman', Times, serif; */
     color: rgb(30, 25, 26);
     margin-bottom: 10px;
 }
