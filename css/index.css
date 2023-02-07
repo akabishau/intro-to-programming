@@ -33,6 +33,7 @@ body {
 
 section {
     border: 1px solid black;
+    margin-bottom: 5px;
 }
 
 ul {
@@ -40,10 +41,8 @@ ul {
 }
 
 
-h2,
-h3 {
+h2 {
     font-size: large;
-    color: rgb(30, 25, 26);
     margin-bottom: 10px;
 }
 
@@ -148,11 +147,48 @@ h3 {
 }
 
 
+/* MEDIA QUERY FORM */
+@media (min-width: 415px) and (max-width: 768px) {
+    #feedback-form {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 
+    #name {
+        margin-right: 8px;
+    }
+
+    .form-item {
+        flex-basis: 50%;
+    }
+
+    .form-message,
+    .form-button {
+        flex-basis: 100%;
+    }
+}
+
+/* @media screen and (min-width: 415px) and (max-width:900px){
+    ...
+ } */
+@media (min-width: 769px) {
+    .feedback-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #feedback-form {
+        flex-direction: column;
+    }
+
+    #leave-message, #messages {
+        flex-basis: 50%;
+    }
+}
 /* MESSAGES */
 
 #messages {
-    padding: 15px;
+    /* padding: 15px; */
     background-color: floralwhite;
     color: black;
 }
@@ -163,13 +199,14 @@ h3 {
 }
 
 .messages-show {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 
 #messages ul li {
     padding: 1em;
-    background: white;
+    /* background: white; */
     border-radius: 0.3em;
     border: solid 1px black;
 }
@@ -183,10 +220,6 @@ h3 {
     font-style: normal;
     font-weight: 800;
 }
-
-/* #messages li span {
-
-} */
 
 #messages button {
     display: block;
