@@ -46,6 +46,13 @@ h2 {
     margin-bottom: 10px;
 }
 
+button {
+    display: block;
+    height: 30px;
+    font-size: 1em;
+    border-radius: 0.2em;
+}
+
 
 /* EXPERIENCE */
 
@@ -137,13 +144,13 @@ h2 {
 
 
 #feedback-form button {
-    display: block;
-    height: 30px;
+    /* display: block; */
+    /* height: 30px; */
     color: white;
-    font-size: 1em;
+    /* font-size: 1em; */
     background: gray;
     border: none;
-    border-radius: .2em;
+    /* border-radius: .2em; */
 }
 
 
@@ -188,9 +195,7 @@ h2 {
 /* MESSAGES */
 
 #messages {
-    /* padding: 15px; */
     background-color: floralwhite;
-    color: black;
 }
 
 
@@ -205,8 +210,8 @@ h2 {
 
 
 #messages ul li {
-    padding: 1em;
-    /* background: white; */
+    padding: 0.5em;
+    background: white;
     border-radius: 0.3em;
     border: solid 1px black;
 }
@@ -221,17 +226,26 @@ h2 {
     font-weight: 800;
 }
 
+
 #messages button {
-    display: block;
-    border-radius: 6px;
-    color: #FF4742;
-    background: floralwhite;
-    border: 1px solid #FF4742;
+    color: red;
+    border: 1px solid red;
 }
+
+/* button {
+    display: block;
+    height: 30px;
+    font-size: 1em;
+    border-radius: 0.2em;
+} */
+
+
+
 
 #messages button:hover {
     background-color: #FF4742;
     color: #fff;
+    border: 1px solid red;
 }
 
 
