@@ -7,7 +7,7 @@ const myName = 'Aliaksei Kabishau';
 const skillsList = document.getElementById('skills-list');
 const messagesSection = document.getElementById('messages');
 const messageList = messagesSection.querySelector('ul');
-const messageForm  = document.getElementById('feedback-form');
+const messageForm = document.getElementById('feedback-form');
 const footerCopyright = document.querySelector('.copyright');
 
 
@@ -30,22 +30,26 @@ messageForm.addEventListener('submit', (event) => {
     const messageText = event.target.message.value;
 
     const newMessage = createMessage(name, email, messageText);
-
-    messageList.appendChild(newMessage);
-    
-    if (messageCount == 0) {
-        messagesSection.className = 'messages-show'
-    }
-    messageCount += 1;
+    addMessage(newMessage);
 
     event.target.reset();
 });
 
 
+function addMessage(message) {
+    messageList.appendChild(message);
+
+    if (messageCount == 0) {
+        messagesSection.className = 'messages-show'
+    }
+    messageCount += 1;
+}
+
+
 function createMessage(name, email, messageText) {
     const li = document.createElement('li');
     li.className = 'message';
-    
+
     const pFrom = document.createElement('p');
     pFrom.className = 'message-from';
 
@@ -82,11 +86,7 @@ function createMessage(name, email, messageText) {
     li.appendChild(removeButton);
 
     removeButton.addEventListener('click', (event) => {
-        event.target.parentNode.remove();
-        messageCount -= 1;
-        if (messageCount == 0) {
-            messagesSection.className = 'messages-hide'
-        }
+        removeMessage(event.target.parentNode);
     });
 
     editButton.addEventListener('click', (event) => {
@@ -96,13 +96,37 @@ function createMessage(name, email, messageText) {
     return li
 }
 
+function addMessage(message) {
+    messageList.appendChild(message);
 
-  function configureFooter(year, name) {
+    if (messageCount == 0) {
+        messagesSection.className = 'messages-show'
+    }
+    messageCount += 1;
+}
+
+
+function removeMessage(message) {
+    message.remove()
+    messageCount -= 1;
+    if (messageCount == 0) {
+        messagesSection.className = 'messages-hide'
+    }
+}
+
+
+
+function configureFooter(year, name) {
     const p = document.createElement('p');
     p.textContent = `\u00A9 ${year} ${name}`;
     footerCopyright.appendChild(p);
 }
 
 
-  createSkillsList(mySkills);
-  configureFooter(currentYear, myName);
+createSkillsList(mySkills);
+configureFooter(currentYear, myName);
+
+const message1 = createMessage('Kale', 'email@email.com', 'Good job! Keep going!');
+const message2 = createMessage('Jane', 'email@email.com', 'If you want to work on improving the overall design, please let me know. I\'m free next week 😀');
+addMessage(message1);
+addMessage(message2);
