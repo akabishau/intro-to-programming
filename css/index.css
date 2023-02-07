@@ -144,13 +144,9 @@ button {
 
 
 #feedback-form button {
-    /* display: block; */
-    /* height: 30px; */
     color: white;
-    /* font-size: 1em; */
     background: gray;
     border: none;
-    /* border-radius: .2em; */
 }
 
 
@@ -173,11 +169,12 @@ button {
     .form-button {
         flex-basis: 100%;
     }
+
+    #feedback-form textarea {
+        height: 30px;
+    }
 }
 
-/* @media screen and (min-width: 415px) and (max-width:900px){
-    ...
- } */
 @media (min-width: 769px) {
     .feedback-wrapper {
         display: flex;
@@ -194,11 +191,6 @@ button {
 }
 /* MESSAGES */
 
-#messages {
-    background-color: floralwhite;
-}
-
-
 .messages-hide {
     display: none;
 }
@@ -209,43 +201,77 @@ button {
 }
 
 
-#messages ul li {
+.messages-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    margin: 0.5em;
     padding: 0.5em;
     background: white;
-    border-radius: 0.3em;
+    border-radius: 0.2em;
     border: solid 1px black;
 }
 
-#messages label {
-    display: block;
+.message-from {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
 }
 
+.message-text {
+    /* background-color: lightgray; */
+    flex-basis: 100%;
+    min-height: 30px;
 
-#messages li a {
-    font-style: normal;
-    font-weight: 800;
+    display: flex;
+    align-items: center;
 }
 
+.message-from span {
+    margin-right: 5px;
+}
 
-#messages button {
+.remove-message {
+    /* flex-basis: 60px; */
+    /* padding: 0 10px; */
+    flex-basis: 50%;
+
     color: red;
     border: 1px solid red;
 }
 
-/* button {
-    display: block;
-    height: 30px;
-    font-size: 1em;
-    border-radius: 0.2em;
-} */
-
-
-
-
-#messages button:hover {
+.remove-message:hover {
     background-color: #FF4742;
     color: #fff;
     border: 1px solid red;
+}
+
+.edit-message {
+    flex-basis: 50%;
+    color: green;
+    border: 1px solid green;
+}
+
+
+@media (min-width: 415px) and (max-width: 768px) {
+
+    .message-from {
+        order: 2;
+        flex-basis: auto;
+        flex: 3;
+    }
+
+    .message button {
+        order: 3;
+        flex-basis: auto;
+        flex: 1;
+    }
 }
 
 

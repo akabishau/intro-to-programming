@@ -1,7 +1,7 @@
 const mySkills = ['HTML', 'CSS', 'Javascript', 'Node.js', 'Agile', 'SDLC', 'Swift', 'SQL', 'Python', 'Jira'];
 let messageCount = 0;
 let currentYear = new Date().getFullYear();
-const myName = 'Aleksey Kabishau';
+const myName = 'Aliaksei Kabishau';
 
 
 const skillsList = document.getElementById('skills-list');
@@ -24,8 +24,6 @@ function createSkillsList(skills) {
 messageForm.addEventListener('submit', (event) => {
     event.preventDefault(); // in this case prevents refreshing page after submit clicked
 
-    
-
     // capture form values and create new bullet with values from the form
     const name = event.target.name.value;
     const email = event.target.email.value;
@@ -44,30 +42,44 @@ messageForm.addEventListener('submit', (event) => {
 });
 
 
-
 function createMessage(name, email, messageText) {
     const li = document.createElement('li');
+    li.className = 'message';
+    
+    const pFrom = document.createElement('p');
+    pFrom.className = 'message-from';
 
-    // create "message" line
-    const p = document.createElement('p');
-    p.textContent = messageText;
-    li.appendChild(p);
-
-    // create "from" line
     const a = document.createElement('a');
     a.href = `mailto:${email}`;
     a.text = name;
-    a.className = "link"
 
-    const span = document.createElement('span');  
-    span.textContent = 'from ';
-    span.appendChild(a);
-    li.appendChild(span);
+    const span = document.createElement('span');
+    span.textContent = 'Message from:';
+
+    pFrom.appendChild(span);
+    pFrom.appendChild(a);
+    li.appendChild(pFrom);
+
+
+    const pText = document.createElement('p');
+    pText.className = 'message-text';
+    pText.textContent = messageText;
+    li.appendChild(pText);
+
+
+    // create edit button
+    const editButton = document.createElement('button');
+    editButton.textContent = 'edit';
+    editButton.type = 'button';
+    editButton.className = 'edit-message'
+    li.appendChild(editButton);
 
     // create remove button
     const removeButton = document.createElement('button');
-    removeButton.textContent = "remove";
-    removeButton.type = "button";
+    removeButton.textContent = 'remove';
+    removeButton.type = 'button';
+    removeButton.className = 'remove-message'
+    li.appendChild(removeButton);
 
     removeButton.addEventListener('click', (event) => {
         event.target.parentNode.remove();
@@ -77,9 +89,12 @@ function createMessage(name, email, messageText) {
         }
     });
 
-    li.appendChild(removeButton);
-    return li;
-  }
+    editButton.addEventListener('click', (event) => {
+        console.log(event.target.parentNode);
+    })
+
+    return li
+}
 
 
   function configureFooter(year, name) {
@@ -87,7 +102,6 @@ function createMessage(name, email, messageText) {
     p.textContent = `\u00A9 ${year} ${name}`;
     footerCopyright.appendChild(p);
 }
-
 
 
   createSkillsList(mySkills);
