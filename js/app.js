@@ -1,7 +1,7 @@
 const mySkills = ['HTML', 'CSS', 'Javascript', 'Node.js', 'Agile', 'SDLC', 'Swift', 'SQL', 'Python', 'Jira'];
 let messageCount = 0;
 let currentYear = new Date().getFullYear();
-const myName = 'Aliaksei Kabishau';
+const defaultName = 'Aleksey K';
 
 
 const skillsList = document.getElementById('skills-list');
@@ -124,8 +124,23 @@ function configureFooter(year, name) {
 }
 
 
+function configureHeader(name, url) {
+    const headerNameWrapper = document.querySelector('.name-wrapper');
+    const heading = headerNameWrapper.querySelector('h1');
+    const avatar = headerNameWrapper.querySelector('img');
+    heading.textContent = name;
+    avatar.src = url;
+}
+
+function configureTitle(name) {
+    const title = document.querySelector('head').querySelector('title');
+    title.textContent = name
+}
+
+
+
 createSkillsList(mySkills);
-configureFooter(currentYear, myName);
+// configureFooter(currentYear, myName);
 
 const message1 = createMessage('Kale', 'email@email.com', 'Good job! Keep going!');
 const message2 = createMessage('Jane', 'email@email.com', 'If you want to work on improving the overall design, please let me know. I\'m free next week 😀');
@@ -133,21 +148,58 @@ addMessage(message1);
 addMessage(message2);
 
 
-
+// PROJECTS //
 
 // FETCH //
 const getReposUrl = 'https://api.github.com/users/akabishau/repos';
 const getUserUrl = 'https://api.github.com/users/akabishau';
+
+function checkStatus(response) {
+    if (response.ok) {
+        return Promise.resolve(response);
+    } else {
+        console.log(response);
+        return Promise.reject(new Error(response.statusText));
+    }
+}
+
+fetch(getUserUrl)
+.then(response => checkStatus(response))
+.then(response => response.json())
+.then(user => {
+    console.log(user);
+    configureTitle(user.name);
+    configureHeader(user.name, user.avatar_url);
+    configureFooter(currentYear, user.name);
+})
+.catch(error => {
+    console.log('Error getting user data from GitHub', error);
+    configureTitle(defaultName);
+    configureHeader(defaultName, 'images/logo.png');
+    configureFooter(currentYear, defaultName);
+})
+.finally( () => {
+    console.log('get user info call is completed')
+})
+
 
 
 fetch(getReposUrl)
 .then(response => response.json())
 .then(json => getLanguages(json))
 .then(projects => renderProjects(projects))
-.catch(error => console.log('Error getting project data from GitHub: ', error))
+.catch(error => {
+    console.log('Error getting project data from GitHub: ', error);
+    renderEmptyProjectsMessage()
+})
 
 
 //  HELPER FUNCTIONS //
+function getAvatar(url) {
+    fetch(url).then(response => response.json())
+}
+
+
 function getLanguages(json) {
     const projects = json.map ( repo => {
         return fetch(repo.languages_url)
@@ -175,6 +227,9 @@ function parseProjectLanguages(data) {
     return languages
 }
 
+function renderEmptyProjectsMessage() {
+    console.log('renderEmptyProjectsMessage')
+}
 
 function renderProjects(projects) {
     projects.forEach( project => {
