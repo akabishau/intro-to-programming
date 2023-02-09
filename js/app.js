@@ -183,7 +183,7 @@ function renderProjects(projects) {
 
         // name and link
         const projectLink = document.createElement('a');
-        projectLink.href = project.url;
+        projectLink.href = project.html_url;
         projectLink.text = project.name;
         projectLink.className = 'project-title';
         projectLink.target = '_blank';

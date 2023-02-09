@@ -142,18 +142,19 @@ button {
     font-weight: bold;
 }
 
-.list-heading {
-    /* font-weight: normal; */
+
+.language-list li {
+    border-bottom: 1px solid #647C90;
+    margin-right: 8px;
 }
 
 .language-name {
-    font-weight: bold;
-    /* margin-left: 8px; */
+    font-weight: normal;
 }
 
 .language-volume {
-    color: darkgrey;
-    margin: 0 8px 0 5px;
+    color: #746C70;
+    margin-left: 5px;
 }
 
 
