@@ -5,6 +5,7 @@ const myName = 'Aliaksei Kabishau';
 
 
 const skillsList = document.getElementById('skills-list');
+const projectList = document.getElementById('project-list');
 const messagesSection = document.getElementById('messages');
 const messageList = messagesSection.querySelector('ul');
 const messageForm = document.getElementById('feedback-form');
@@ -130,3 +131,99 @@ const message1 = createMessage('Kale', 'email@email.com', 'Good job! Keep going!
 const message2 = createMessage('Jane', 'email@email.com', 'If you want to work on improving the overall design, please let me know. I\'m free next week 😀');
 addMessage(message1);
 addMessage(message2);
+
+
+
+
+// FETCH //
+const getReposUrl = 'https://api.github.com/users/akabishau/repos';
+const getUserUrl = 'https://api.github.com/users/akabishau';
+
+
+fetch(getReposUrl)
+.then(response => response.json())
+.then(json => getLanguages(json))
+.then(projects => renderProjects(projects))
+.catch(error => console.log('Error getting project data from GitHub: ', error))
+
+
+//  HELPER FUNCTIONS //
+function getLanguages(json) {
+    const projects = json.map ( repo => {
+        return fetch(repo.languages_url)
+        .then(response => response.json())
+        .then(json => {
+            const languages = parseProjectLanguages(json);
+            repo.languages = languages;
+            return repo;
+        } )
+        .catch(error => print('Error fetching languages:', error))
+    })
+    return Promise.all(projects);
+}
+
+
+function parseProjectLanguages(data) {
+    let languages = []
+    for (const[key, value] of Object.entries(data)) {
+        let languageInfo = {
+            name: key,
+            volume: value
+        }
+        languages.push(languageInfo);
+    }
+    return languages
+}
+
+
+function renderProjects(projects) {
+    projects.forEach( project => {
+        const repo = document.createElement('li');
+        repo.className = 'project';
+
+        // name and link
+        const projectLink = document.createElement('a');
+        projectLink.href = project.url;
+        projectLink.text = project.name;
+        projectLink.className = 'project-title';
+        projectLink.target = '_blank';
+        repo.appendChild(projectLink);
+
+        // description
+        const description = document.createElement('p');
+        description.textContent = project.description;
+        repo.appendChild(description);
+
+        // languages
+        const languageList = renderProjectLanguages(project.languages);
+        repo.appendChild(languageList);
+
+        projectList.appendChild(repo);
+    })
+}
+
+
+function renderProjectLanguages(languages) {
+    let totalVolume = 0
+    languages.forEach( lang => {
+        totalVolume += lang.volume;
+    });
+
+    const languageList = document.createElement('ul');
+    languageList.className = 'language-list';
+
+    languages.forEach(lang => {
+        const langItem = document.createElement('li');
+        const name = document.createElement('span');
+        name.className = 'language-name';
+        name.textContent = lang.name;
+        langItem.appendChild(name);
+        const percentage = document.createElement('span');
+        percentage.className = 'language-volume';
+        const value = Math.round(lang.volume / totalVolume * 100);
+        percentage.textContent = `${value}%`;
+        langItem.appendChild(percentage);
+        languageList.appendChild(langItem);
+    });
+    return languageList;
+}
