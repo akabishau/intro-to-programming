@@ -2,6 +2,7 @@ const mySkills = ['HTML', 'CSS', 'Javascript', 'Node.js', 'Agile', 'SDLC', 'Swif
 let messageCount = 0;
 let currentYear = new Date().getFullYear();
 const defaultName = 'Aleksey K';
+const defaultBio = 'Aspiring Full Stack Developer'
 
 
 const skillsList = document.getElementById('skills-list');
@@ -137,6 +138,10 @@ function configureTitle(name) {
     title.textContent = name
 }
 
+function configureAbout(bio) {
+    const about = document.getElementById('about').querySelector('p');
+    about.textContent = bio;
+}
 
 
 createSkillsList(mySkills);
@@ -171,12 +176,14 @@ fetch(getUserUrl)
     configureTitle(user.name);
     configureHeader(user.name, user.avatar_url);
     configureFooter(currentYear, user.name);
+    configureAbout(user.bio);
 })
 .catch(error => {
     console.log('Error getting user data from GitHub', error);
     configureTitle(defaultName);
     configureHeader(defaultName, 'images/logo.png');
     configureFooter(currentYear, defaultName);
+    configureAbout(defaultBio);
 })
 .finally( () => {
     console.log('get user info call is completed')
@@ -192,12 +199,6 @@ fetch(getReposUrl)
     console.log('Error getting project data from GitHub: ', error);
     renderEmptyProjectsMessage()
 })
-
-
-//  HELPER FUNCTIONS //
-function getAvatar(url) {
-    fetch(url).then(response => response.json())
-}
 
 
 function getLanguages(json) {
@@ -229,12 +230,36 @@ function parseProjectLanguages(data) {
 
 function renderEmptyProjectsMessage() {
     console.log('renderEmptyProjectsMessage')
+    const message = document.createElement('li');
+    message.className = 'project-empty';
+
+    const image = document.createElement('img');
+    image.src = 'images/empty-state-github.png';
+
+    message.appendChild(image);
+
+    const text = document.createElement('p');
+    text.textContent = 'Something went wrong fetching projects from GitHub...🧐 But you can always check my profile and projects '
+    
+    const githubLink = document.createElement('a');
+    githubLink.text = 'here';
+    githubLink.href = 'https://github.com/akabishau';
+    githubLink.target = '_blank';
+    text.appendChild(githubLink);
+
+    const emoji = document.createElement('span');
+    emoji.textContent = ' 👀';
+    text.appendChild(emoji);
+    
+    message.appendChild(text);
+    projectList.appendChild(message);
 }
 
 function renderProjects(projects) {
     projects.forEach( project => {
         const repo = document.createElement('li');
         repo.className = 'project';
+
 
         // name and link
         const projectLink = document.createElement('a');
