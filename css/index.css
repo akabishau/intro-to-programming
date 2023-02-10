@@ -22,18 +22,18 @@ body {
     box-shadow: 0 0 26px rgba(0, 0, 0, 0.15);
 }
 
-
-@media (min-width: 769px) {
+@media (min-width: 415px) {
     .wrapper {
         width: 90%;
         margin: 2em auto;
+        padding: 20px;
     }
 }
 
 
 section {
-    border: 1px solid black;
-    margin-bottom: 10px;
+    /* border: 1px solid black; */
+    margin-bottom: 15px;
 }
 
 ul {
@@ -42,7 +42,7 @@ ul {
 
 
 h2 {
-    font-size: large;
+    /* font-size: large; */
     margin-bottom: 5px;
 }
 
@@ -61,7 +61,7 @@ button {
     border-radius: 3px;
     min-height: 30px;
     margin: 10px 0px;
-    padding: 5px 0px;
+    padding: 5px;
     align-items: left;
 
 
@@ -105,7 +105,7 @@ button {
 
 .skills-item {
     color: black;
-    padding: 10px;
+    padding: 5px 10px;
     margin: 5px;
     background: white;
     border: 1px solid black;
@@ -126,7 +126,7 @@ button {
     flex-direction: column;
 
     margin: 5px;
-    padding: 5px;
+    padding: 10px;
     border: 1px solid black;
     border-radius: 3px;
 }
@@ -135,10 +135,13 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+
+    margin-top: 5px;
 }
 
 .project-title {
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
 
@@ -263,6 +266,7 @@ button {
 
     #leave-message, #messages {
         flex-basis: 50%;
+        padding: 0.5em;
     }
 }
 /* MESSAGES */
@@ -287,7 +291,7 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
 
-    margin: 0.5em;
+    margin-bottom: 0.5em;
     padding: 0.5em;
     background: white;
     border-radius: 0.2em;
