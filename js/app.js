@@ -73,13 +73,6 @@ function createMessage(name, email, messageText) {
     li.appendChild(pText);
 
 
-    // create edit button
-    const editButton = document.createElement('button');
-    editButton.textContent = 'edit';
-    editButton.type = 'button';
-    editButton.className = 'edit-message'
-    li.appendChild(editButton);
-
     // create remove button
     const removeButton = document.createElement('button');
     removeButton.textContent = 'remove';
@@ -90,10 +83,6 @@ function createMessage(name, email, messageText) {
     removeButton.addEventListener('click', (event) => {
         removeMessage(event.target.parentNode);
     });
-
-    editButton.addEventListener('click', (event) => {
-        console.log(event.target.parentNode);
-    })
 
     return li
 }
@@ -294,6 +283,7 @@ function renderProjectLanguages(languages) {
 
     languages.forEach(lang => {
         const langItem = document.createElement('li');
+        langItem.className = lang.name.toLowerCase();
         const name = document.createElement('span');
         name.className = 'language-name';
         name.textContent = lang.name;
