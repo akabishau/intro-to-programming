@@ -16,7 +16,7 @@ const footerCopyright = document.querySelector('.copyright');
 function createSkillsList(skills) {
     for (item of skills) {
         const skill = document.createElement('div');
-        skill.className = 'skills-item';
+        skill.className = 'skills-item card';
         skill.textContent = item;
         skillsList.appendChild(skill);
     }
@@ -50,7 +50,7 @@ function addMessage(message) {
 
 function createMessage(name, email, messageText) {
     const li = document.createElement('li');
-    li.className = 'message';
+    li.className = 'message card';
 
     const pFrom = document.createElement('p');
     pFrom.className = 'message-from';
@@ -220,7 +220,7 @@ function parseProjectLanguages(data) {
 function renderEmptyProjectsMessage() {
     console.log('renderEmptyProjectsMessage')
     const message = document.createElement('li');
-    message.className = 'project-empty';
+    message.className = 'project-empty card';
 
     const image = document.createElement('img');
     image.src = 'images/empty-state-github.png';
@@ -247,7 +247,7 @@ function renderEmptyProjectsMessage() {
 function renderProjects(projects) {
     projects.forEach( project => {
         const repo = document.createElement('li');
-        repo.className = 'project';
+        repo.className = 'project card';
 
 
         // name and link

@@ -37,6 +37,13 @@ button {
     border-radius: 0.2em;
 }
 
+.card {
+    background-color: white;
+    border: 1px solid #647C90;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .wrapper {
     width: 100%;
     max-width: 900px;
@@ -52,16 +59,10 @@ button {
 /* EXPERIENCE */
 
 .experience-item {
-    
     margin: 10px 0px;
     padding: 5px;
     align-items: left;
     min-height: 40px;
-    background: white;
-
-    border: 1px solid #647C90;
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
     display: flex;
     flex-direction: column;
@@ -86,14 +87,8 @@ button {
 }
 
 .skills-item {
-    /* color: black; */
     padding: 5px 10px;
     margin: 5px;
-    background: white;
-    
-    border: 1px solid #647C90;
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -113,12 +108,6 @@ button {
 
     margin: 5px;
     padding: 10px;
-
-    background-color: white;
-
-    border: 1px solid #647C90;
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .language-list {
@@ -153,8 +142,6 @@ button {
     border-bottom: 2px solid #e34c26;
 }
 
-
-
 .language-name {
     font-weight: normal;
 }
@@ -175,10 +162,6 @@ button {
     padding: 5px;
 
     background-color: pink;
-
-    border: 1px solid #647C90;
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .project-empty img {
@@ -289,12 +272,6 @@ button {
 
     margin-bottom: 0.5em;
     padding: 0.5em;
-    
-    background: white;
-
-    border: 1px solid #647C90;
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .message-from {
