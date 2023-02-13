@@ -3,12 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* 
-Blue Gray #647C90
-Ivory #E2DED0
-Cool Gray #4E4F50
-Gray #746C70 
-*/
 
 body {
     background-color: #E2DED0;
@@ -59,15 +53,18 @@ button {
 }
 
 
+/* ABOUT */
+#about p {
+    font-size: 1.1em;
+}
+
 /* EXPERIENCE */
-
 .experience-item {
-
-    align-items: left;
     min-height: 40px;
 
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .job-wrapper {
@@ -78,6 +75,11 @@ button {
 .job-dash {
     display: none !important;
     margin: 0 10px;
+}
+
+.job-title {
+    font-size: 1.1em;
+    font-weight: 700;
 }
 
 
@@ -94,7 +96,6 @@ button {
 
 
 /* PROJECTS */
-
 .projects-wrapper {
     display: flex;
     flex-direction: column;
@@ -135,15 +136,16 @@ button {
 
 .language-list li {
     margin-right: 0.5em;
-    font-size: bold;
 }
 
 .swift {
     border-bottom: 2px solid #F05138;
 }
+
 .javascript {
     border-bottom: 2px solid #f1d926;
 }
+
 .css {
     border-bottom: 2px solid #563d7c;
 }
@@ -164,6 +166,7 @@ button {
     align-items: center;
 
     background-color: pink;
+    font-size: 1.2em;
 }
 
 .project-empty img {
@@ -174,34 +177,46 @@ button {
 
 
 /* FORM */
-
 #feedback-form {
     display: flex;
     flex-direction: column;
 
     border-radius: .2em;
-    border: solid 4px white;
+    border: solid 5px white;
     box-shadow: 0 1px 14px rgba(0, 0, 0, .15);
+
+    padding: 3px;
 
 }
 
 .form-item {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 #feedback-form input {
     height: 30px;
     margin-bottom: 5px;
     border: none;
+
+    border-radius: 2px;
+    padding: 0.5em;
+    color: #647C90;
+    font-size: 1em;
+    outline: 0;
 }
 
 #feedback-form textarea {
     height: 60px;
     margin-bottom: 5px;
     border: none;
-}
 
+    padding: 0.5em;
+    color: #647C90;
+    font-size: 1.2em;
+    outline: 0;
+}
 
 #feedback-form button {
     color: white;
@@ -210,48 +225,7 @@ button {
 }
 
 
-/* MEDIA QUERY FORM */
-@media (min-width: 415px) and (max-width: 768px) {
-    #feedback-form {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    #name {
-        margin-right: 8px;
-    }
-
-    .form-item {
-        flex-basis: 50%;
-    }
-
-    .form-message,
-    .form-button {
-        flex-basis: 100%;
-    }
-
-    #feedback-form textarea {
-        height: 30px;
-    }
-}
-
-@media (min-width: 769px) {
-    .feedback-wrapper {
-        display: flex;
-        flex-direction: row;
-    }
-
-    #feedback-form {
-        flex-direction: column;
-    }
-
-    #leave-message, #messages {
-        flex-basis: 50%;
-        padding: 0.5em;
-    }
-}
 /* MESSAGES */
-
 .messages-hide {
     display: none;
 }
@@ -285,7 +259,7 @@ button {
 
     display: flex;
     align-items: center;
-    margin: 0.5em 0;
+    margin: 0.3em 0;
 }
 
 .message-from span {
@@ -306,25 +280,7 @@ button {
 }
 
 
-
-@media (min-width: 415px) and (max-width: 768px) {
-
-    .message-from {
-        order: 2;
-        flex-basis: auto;
-        flex: 3;
-    }
-
-    .message button {
-        order: 3;
-        flex-basis: auto;
-        flex: 1;
-    }
-}
-
-
 /* FOOTER */
-
 .footer-container {
     display: flex;
     flex-direction: column;
@@ -349,22 +305,6 @@ button {
     margin: 0 10px 0 0;
 }
 
-@media (min-width: 415px) {
-
-    .footer-container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .copyright {
-        order: 0;
-    }
-
-    .icon-social {
-        margin: 0 0 0 10px;
-    }
-}
-
 
 /* MEDIA QUERIES */
 
@@ -383,7 +323,63 @@ button {
     .skills-item {
         padding: 0.7em 1em;
     }
+
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .copyright {
+        order: 0;
+    }
+
+    .icon-social {
+        margin: 0 0 0 10px;
+    }
 }
+
+
+@media (min-width: 415px) and (max-width: 768px) {
+
+    #feedback-form {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #name {
+        margin-right: 3px;
+    }
+
+    .form-item {
+        width: 50%;
+    }
+
+    .form-message,
+    .form-button {
+        flex-basis: 100%;
+    }
+
+    #feedback-form textarea {
+        height: 40px;
+    }
+
+    .message-from {
+        order: 2;
+        flex-basis: auto;
+        flex: 3;
+    }
+
+    .message button {
+        order: 3;
+        flex-basis: auto;
+        flex: 1;
+    }
+
+    .message-text {
+        margin: 0;
+    }
+}
+
 
 @media (min-width: 769px) {
 
@@ -393,10 +389,6 @@ button {
         align-items: center;
     }
 
-    .project {
-        margin-right: 0.5em;
-    }
-
     .job-wrapper {
         flex-direction: row;
     }
@@ -404,10 +396,8 @@ button {
     .job-dash {
         display: block !important;
     }
-}
 
 
-@media (min-width: 769px) {
     .projects-wrapper {
         flex-direction: row;
     }
@@ -415,5 +405,21 @@ button {
     .project {
         flex: 1;
         flex-basis: 40%;
+        margin-right: 0.5em;
+    }
+
+    .feedback-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #feedback-form {
+        flex-direction: column;
+    }
+
+    #leave-message,
+    #messages {
+        flex-basis: 50%;
+        padding-right: 0.5em;
     }
 }

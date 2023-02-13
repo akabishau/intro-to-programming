@@ -1,8 +1,12 @@
 const mySkills = ['HTML', 'CSS', 'Javascript', 'Node.js', 'Agile', 'SDLC', 'Swift', 'SQL', 'Python', 'Jira'];
 let messageCount = 0;
 let currentYear = new Date().getFullYear();
+
 const defaultName = 'Aleksey K';
-const defaultBio = 'Aspiring Full Stack Developer'
+const defaultBio = 'Aspiring Full Stack Developer';
+const githubProfileUrl = 'https://github.com/akabishau';
+const getReposUrl = 'https://api.github.com/users/akabishau/repos';
+const getUserInfoUrl = 'https://api.github.com/users/akabishau';
 
 
 const skillsList = document.getElementById('skills-list');
@@ -13,6 +17,7 @@ const messageForm = document.getElementById('feedback-form');
 const footerCopyright = document.querySelector('.copyright');
 
 
+// SKILLS
 function createSkillsList(skills) {
     for (item of skills) {
         const skill = document.createElement('div');
@@ -23,10 +28,11 @@ function createSkillsList(skills) {
 }
 
 
+// MESSAGES
+
 messageForm.addEventListener('submit', (event) => {
     event.preventDefault(); // in this case prevents refreshing page after submit clicked
 
-    // capture form values and create new bullet with values from the form
     const name = event.target.name.value;
     const email = event.target.email.value;
     const messageText = event.target.message.value;
@@ -42,7 +48,7 @@ function addMessage(message) {
     messageList.appendChild(message);
 
     if (messageCount == 0) {
-        messagesSection.className = 'messages-show'
+        messagesSection.className = 'messages-show';
     }
     messageCount += 1;
 }
@@ -56,9 +62,9 @@ function createMessage(name, email, messageText) {
     pFrom.className = 'message-from';
 
     const a = document.createElement('a');
+    a.className = 'project-link';
     a.href = `mailto:${email}`;
     a.text = name;
-    a.className = 'project-link'
 
     const span = document.createElement('span');
     span.textContent = 'Message from:';
@@ -76,38 +82,39 @@ function createMessage(name, email, messageText) {
 
     // create remove button
     const removeButton = document.createElement('button');
+    removeButton.className = 'remove-message';
     removeButton.textContent = 'remove';
     removeButton.type = 'button';
-    removeButton.className = 'remove-message'
     li.appendChild(removeButton);
 
     removeButton.addEventListener('click', (event) => {
         removeMessage(event.target.parentNode);
     });
 
-    return li
+    return li;
 }
+
 
 function addMessage(message) {
     messageList.appendChild(message);
 
     if (messageCount == 0) {
-        messagesSection.className = 'messages-show'
+        messagesSection.className = 'messages-show';
     }
     messageCount += 1;
 }
 
 
 function removeMessage(message) {
-    message.remove()
+    message.remove();
     messageCount -= 1;
     if (messageCount == 0) {
-        messagesSection.className = 'messages-hide'
+        messagesSection.className = 'messages-hide';
     }
 }
 
 
-
+// HELPER UI UPDATE FUNCTIONS
 function configureFooter(year, name) {
     const p = document.createElement('p');
     p.textContent = `\u00A9 ${year} ${name}`;
@@ -117,16 +124,25 @@ function configureFooter(year, name) {
 
 function configureHeader(name, url) {
     const headerNameWrapper = document.querySelector('.name-wrapper');
-    const heading = headerNameWrapper.querySelector('h1');
-    const avatar = headerNameWrapper.querySelector('img');
-    heading.textContent = name;
+
+    const avatar = document.createElement('img');
+    avatar.className = 'logo';
+    avatar.alt = 'GitHub Avatar';
     avatar.src = url;
+    headerNameWrapper.appendChild(avatar);
+
+    const heading = document.createElement('h1');
+    heading.textContent = name;
+    headerNameWrapper.appendChild(heading);
+    
 }
+
 
 function configureTitle(name) {
     const title = document.querySelector('head').querySelector('title');
-    title.textContent = name
+    title.textContent = name;
 }
+
 
 function configureAbout(bio) {
     const about = document.getElementById('about').querySelector('p');
@@ -134,61 +150,15 @@ function configureAbout(bio) {
 }
 
 
-createSkillsList(mySkills);
-// configureFooter(currentYear, myName);
-
-const message1 = createMessage('Kale', 'email@email.com', 'Good job! Keep going!');
-const message2 = createMessage('Jane', 'email@email.com', 'If you want to work on improving the overall design, please let me know. I\'m free next week 😀');
-addMessage(message1);
-addMessage(message2);
-
-
-// PROJECTS //
-
-// FETCH //
-const getReposUrl = 'https://api.github.com/users/akabishau/repos';
-const getUserUrl = 'https://api.github.com/users/akabishau';
+// FETCH DATA RELATED HELPER FUNCTIONS //
 
 function checkStatus(response) {
     if (response.ok) {
         return Promise.resolve(response);
     } else {
-        console.log(response);
         return Promise.reject(new Error(response.statusText));
     }
 }
-
-fetch(getUserUrl)
-.then(response => checkStatus(response))
-.then(response => response.json())
-.then(user => {
-    console.log(user);
-    configureTitle(user.name);
-    configureHeader(user.name, user.avatar_url);
-    configureFooter(currentYear, user.name);
-    configureAbout(user.bio);
-})
-.catch(error => {
-    console.log('Error getting user data from GitHub', error);
-    configureTitle(defaultName);
-    configureHeader(defaultName, 'images/logo.png');
-    configureFooter(currentYear, defaultName);
-    configureAbout(defaultBio);
-})
-.finally( () => {
-    console.log('get user info call is completed')
-})
-
-
-
-fetch(getReposUrl)
-.then(response => response.json())
-.then(json => getLanguages(json))
-.then(projects => renderProjects(projects))
-.catch(error => {
-    console.log('Error getting project data from GitHub: ', error);
-    renderEmptyProjectsMessage()
-})
 
 
 function getLanguages(json) {
@@ -200,26 +170,26 @@ function getLanguages(json) {
             repo.languages = languages;
             return repo;
         } )
-        .catch(error => print('Error fetching languages:', error))
-    })
+        .catch(error => print('Error fetching languages:', error));
+    });
     return Promise.all(projects);
 }
 
 
 function parseProjectLanguages(data) {
-    let languages = []
+    let languages = [];
     for (const[key, value] of Object.entries(data)) {
         let languageInfo = {
             name: key,
             volume: value
-        }
+        };
         languages.push(languageInfo);
     }
-    return languages
+    return languages;
 }
 
+
 function renderEmptyProjectsMessage() {
-    console.log('renderEmptyProjectsMessage')
     const message = document.createElement('li');
     message.className = 'project-empty card';
 
@@ -229,13 +199,13 @@ function renderEmptyProjectsMessage() {
     message.appendChild(image);
 
     const text = document.createElement('p');
-    text.textContent = 'Something went wrong fetching projects from GitHub...🧐 But you can always check my profile and projects '
+    text.textContent = 'Something went wrong fetching projects from GitHub...🧐 But you can always check my profile and projects ';
     
     const githubLink = document.createElement('a');
+    githubLink.className = 'project-link';
     githubLink.text = 'here';
-    githubLink.href = 'https://github.com/akabishau';
+    githubLink.href = githubProfileUrl;
     githubLink.target = '_blank';
-    githubLink.className = 'project-link'
     text.appendChild(githubLink);
 
     const emoji = document.createElement('span');
@@ -246,11 +216,11 @@ function renderEmptyProjectsMessage() {
     projectList.appendChild(message);
 }
 
+
 function renderProjects(projects) {
     projects.forEach( project => {
         const repo = document.createElement('li');
         repo.className = 'project card';
-
 
         // name and link
         const projectLink = document.createElement('a');
@@ -270,12 +240,12 @@ function renderProjects(projects) {
         repo.appendChild(languageList);
 
         projectList.appendChild(repo);
-    })
+    });
 }
 
 
 function renderProjectLanguages(languages) {
-    let totalVolume = 0
+    let totalVolume = 0;
     languages.forEach( lang => {
         totalVolume += lang.volume;
     });
@@ -299,3 +269,50 @@ function renderProjectLanguages(languages) {
     });
     return languageList;
 }
+
+
+// ON PAGE LOAD
+createSkillsList(mySkills);
+
+// generate message that highlight the page features
+const message1 = createMessage('Kate', 'email@email.com', 'Hey, It\'s a good idea to fetch user information (name spelling, bio, photo/avatar) directly from GitHub. Then, you only need to update it in one place, and it will be reflected on the portfolio page! 🤓');
+const message2 = createMessage('Rick', 'email@email.com', 'Hi there! ✋ I like that you\'ve created the empty state message for the project section in case of issues with getting data from GitHub API. The default values for the user information are also a good idea, so the page still looks nice no matter what 😀');
+const message3 = createMessage('Mike', 'email@email.com', 'I see layout changes depending on screen size for many sections on the page (mobile, tablet, desktop). We need to present the information in the best possible way 👍');
+const message4 = createMessage('Michelle', 'email@email.com', 'Interesting idea of calculating and displaying the programming languages for the projects! 👏')
+addMessage(message1);
+addMessage(message2);
+addMessage(message3);
+addMessage(message4);
+
+
+// fetch user info from github or populate default values in case of error
+// break url to test
+fetch(getUserInfoUrl)
+.then(response => checkStatus(response))
+.then(response => response.json())
+.then(user => {
+    configureTitle(user.name);
+    configureHeader(user.name, user.avatar_url);
+    configureFooter(currentYear, user.name);
+    configureAbout(user.bio);
+})
+.catch(error => {
+    console.log('Error getting user data from GitHub', error);
+    configureTitle(defaultName);
+    configureHeader(defaultName, 'images/logo.png');
+    configureFooter(currentYear, defaultName);
+    configureAbout(defaultBio);
+});
+
+
+// fetch repositories from github or populate empty state message in case of error
+// break url to test
+fetch(getReposUrl)
+.then(response => response.json())
+.then(json => getLanguages(json))
+.then(projects => renderProjects(projects))
+.catch(error => {
+    console.log('Error getting project data from GitHub: ', error);
+    renderEmptyProjectsMessage();
+});
+
