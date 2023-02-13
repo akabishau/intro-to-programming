@@ -112,17 +112,30 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
 
-    margin-top: 5px;
+    margin-top: 0.5em;
 }
 
 .project-title {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 0.5em;
+}
+
+.project-link {
+    color: #746C70;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.project-link:hover {
+    text-decoration: none;
+    color: #647C90;
 }
 
 
 .language-list li {
-    margin-right: 8px;
+    margin-right: 0.5em;
+    font-size: bold;
 }
 
 .swift {
@@ -139,12 +152,7 @@ button {
     border-bottom: 2px solid #e34c26;
 }
 
-.language-name {
-    font-weight: normal;
-}
-
 .language-volume {
-    color: #746C70;
     margin-left: 5px;
 }
 
@@ -197,7 +205,7 @@ button {
 
 #feedback-form button {
     color: white;
-    background: gray;
+    background: #647C90;
     border: none;
 }
 
@@ -277,6 +285,7 @@ button {
 
     display: flex;
     align-items: center;
+    margin: 0.5em 0;
 }
 
 .message-from span {
@@ -369,6 +378,10 @@ button {
 
     .card {
         padding: 1em;
+    }
+
+    .skills-item {
+        padding: 0.7em 1em;
     }
 }
 

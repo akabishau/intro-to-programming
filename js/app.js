@@ -58,6 +58,7 @@ function createMessage(name, email, messageText) {
     const a = document.createElement('a');
     a.href = `mailto:${email}`;
     a.text = name;
+    a.className = 'project-link'
 
     const span = document.createElement('span');
     span.textContent = 'Message from:';
@@ -69,7 +70,7 @@ function createMessage(name, email, messageText) {
 
     const pText = document.createElement('p');
     pText.className = 'message-text';
-    pText.textContent = messageText;
+    pText.textContent = `"${messageText}"`;
     li.appendChild(pText);
 
 
@@ -234,6 +235,7 @@ function renderEmptyProjectsMessage() {
     githubLink.text = 'here';
     githubLink.href = 'https://github.com/akabishau';
     githubLink.target = '_blank';
+    githubLink.className = 'project-link'
     text.appendChild(githubLink);
 
     const emoji = document.createElement('span');
@@ -254,7 +256,7 @@ function renderProjects(projects) {
         const projectLink = document.createElement('a');
         projectLink.href = project.html_url;
         projectLink.text = project.name;
-        projectLink.className = 'project-title';
+        projectLink.className = 'project-title project-link';
         projectLink.target = '_blank';
         repo.appendChild(projectLink);
 
