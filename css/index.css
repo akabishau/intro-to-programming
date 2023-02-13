@@ -42,6 +42,9 @@ button {
     border: 1px solid #647C90;
     border-radius: 3px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    padding: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .wrapper {
@@ -59,8 +62,7 @@ button {
 /* EXPERIENCE */
 
 .experience-item {
-    margin: 10px 0px;
-    padding: 5px;
+
     align-items: left;
     min-height: 40px;
 
@@ -87,13 +89,11 @@ button {
 }
 
 .skills-item {
-    padding: 5px 10px;
-    margin: 5px;
+    margin-right: 8px;
 }
 
 
 /* PROJECTS */
-
 
 .projects-wrapper {
     display: flex;
@@ -105,9 +105,6 @@ button {
 .project {
     display: flex;
     flex-direction: column;
-
-    margin: 5px;
-    padding: 10px;
 }
 
 .language-list {
@@ -157,9 +154,6 @@ button {
     flex-grow: 2;
     align-content: stretch;
     align-items: center;
-
-    margin: 5px;
-    padding: 5px;
 
     background-color: pink;
 }
@@ -269,9 +263,6 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
-    margin-bottom: 0.5em;
-    padding: 0.5em;
 }
 
 .message-from {
@@ -337,7 +328,6 @@ button {
 
 }
 
-
 .social-container {
     display: flex;
     flex-direction: row;
@@ -376,13 +366,22 @@ button {
         margin: 2em auto;
         padding: 20px;
     }
+
+    .card {
+        padding: 1em;
+    }
 }
 
 @media (min-width: 769px) {
+
     .experience-item {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .project {
+        margin-right: 0.5em;
     }
 
     .job-wrapper {
