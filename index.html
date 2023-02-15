@@ -11,105 +11,127 @@
 </head>
 
 <body>
-    <header>
-        <div class="nav-container">
-            <div class="nav-item">
-                <div class="nav-logo">
-                    <img src="images/logo.jpg" alt="">
-                </div>
-                <div class="nav-name">
-                    <h1>Aleksey Kabishau</h1>
-                </div>
-            </div>
-            <div class="nav-item hide-mobile">
-                <ul class="nav-menu">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#connect">Contact</a></li>
-                </ul>
-            </div>
-        </div>
+<div class="wrapper">
+    <header class="main-header">
+        <div class="name-wrapper"></div>
+        <ul class="menu">
+            <li><a href="#about" class="link">about</a></li>
+            <li><a href="#experience" class="link">experience</a></li>
+            <li><a href="#skills" class="link">skills</a></li>
+            <li><a href="#leave-message" class="link">contact</a></li>
+        </ul>
     </header>
     
-    <section id="about">
-        <h3>About</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Sollicitudin ac orci phasellus egestas tellus rutrum. Et egestas quis ipsum suspendisse
-            ultrices.
-            Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. </p>
-    </section>
-
-    <section id="experience">
-        <h3>Experience</h3>
-        <div class="experience-list">
-            <div class="experience-item">
-                <div class="experience-title">Title 1</div>
-                <div class="experience-company">Company Name</div>
-                <div class="experience-period">Noveber 2021 - Present</div>
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <p></p>
+        </section>
+    
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item card">
+                    <div class="job-wrapper">
+                        <div class="job-title">Student</div>
+                        <div class="job-dash">-</div>
+                        <div class="job-company">Code The Dream</div>
+                    </div>
+                    <div class="experience-period">Aug 2022 - Present</div>
+                </div>
+                <div class="experience-item card">
+                    <div class="job-wrapper">
+                        <div class="job-title">Software Developer</div>
+                        <div class="job-dash">-</div>
+                        <div class="job-company">Megasoft</div>
+                    </div>
+                    <div class="job-period">Mar 2021 - Aug 2022</div>
+                </div>
+                <div class="experience-item card">
+                    <div class="job-wrapper">
+                        <div class="job-title">Developer Intern</div>
+                        <div class="job-dash">-</div>
+                        <div class="job-company">Facemagazine</div>
+                    </div>
+                    <div class="job-period">Jan 2020 - Feb 2021</div>
+                </div>
             </div>
-            <div class="experience-item">
-                <div class="experience-title">Title 2</div>
-                <div class="experience-company">Company Name 2</div>
-                <div class="experience-period">March 2021 - Noveber 2021</div>
-            </div>
-            <div class="experience-item">
-                <div class="experience-title">Title 3</div>
-                <div class="experience-company">Company Name 3</div>
-                <div class="experience-period">January 2020 - March 2021</div>
-            </div>
+        </section>
+    
+        <section id="skills">
+            <h2>Skills</h2>
+            <!-- empty list, skills are added by js script -->
+            <div id="skills-list"></div>
+    
+        </section>
+    
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul id="project-list" class="projects-wrapper"></ul>
+        </section>
+    
+        <div class="feedback-wrapper">
+            <section id="leave-message">
+                <h2>Leave a Message</h2>
+                <form action="index.html" name="leave_message" id="feedback-form">
+    
+                    <div class="form-item">
+                        <label for="name">Your Name</label>
+                        <input id="name" name="name" type="text" required>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="email">Your Email</label>
+                        <input id="email" name="email" type="email" required>
+                    </div>
+    
+                    <div class="form-item form-message">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+    
+                    <div class="form-item form-button">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </section>
+        
+            <section id="messages" class="messages-hide">
+                <h2>Messages</h2>
+                <ul></ul>
+            </section>
         </div>
-    </section>
+    </main>
 
-    <section id="skills">
-        <h3>Skills</h3>
-        <!-- empty list, bullets are added by js script -->
-        <ul></ul>
-    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="copyright"></div>
+            <ul class="social-container">
+                <li>
+                    <a href="https://twitter.com/aleksey69420" target="_blank">
+                        <img src="images/icon-twitter.png" alt="Twitter Icon" class="icon-social">
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:aleksey.kabishau@icloud.com">
+                        <img src="images/icon-email.png" alt="Email Icon" class="icon-social">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/akabishau" target="_blank">
+                        <img src="images/icon-github.png" alt="GitHub Icon" class="icon-social">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://t.me/aleksey69420">
+                        <img src="images/icon-telegram.png" alt="Telegram Icon" class="icon-social">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul></ul>
-    </section>
-
-    <section id="connect">
-        <h3>Connect</h3>
-        <ul>
-            <li>Email: aleksey.kabishau@icloud.com</li>
-            <li>GitHub: https://github.com/akabishau</li>
-        </ul>
-    </section>
-
-    <section id="leave-message">
-        <h2>Leave a Message</h2>
-        <form action="index.html" name="leave_message">
-            <div class="form-wrapper">
-                <div class="form-row">
-                    <label for="test">NAME</label>
-                    <input id="name" name="name" type="text" required>
-                </div>
-                <div class="form-row">
-                    <label for="email">EMAIL</label>
-                    <input id="email" name="email" type="email" required>
-                </div>
-                <div class="form-row form-textarea">
-                    <label for="message">YOUR MESSAGE</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>    
-            </div>
-            <div class="form-wrapper">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-    </section>
-
-    <section id="messages">
-        <h2>Messages</h2>
-        <ul></ul>
-    </section>
-
-    <footer></footer>
-
-    <script src="js/index.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
